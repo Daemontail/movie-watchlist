@@ -35,11 +35,11 @@ function renderWatchlist(div) {
         if (Title && Runtime != "N/A" && Genre != "N/A" && Plot != "N/A" && imdbRating != "N/A" && Poster != "N/A") {
             div.innerHTML += `
     <section class="movie">
-        <img src=${Poster} />
+        <img class="image" src=${Poster} />
         <div id="details">
             <div id="details-1">
                 <h3>${Title}</h3>
-                <p class="star">${imdbRating} </p>
+                <p><img class="star" src="./img/star.svg">${imdbRating}</p>
             </div>
             <div id="details-2">
                 <p>${Runtime}</p>
