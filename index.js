@@ -4,13 +4,16 @@ const searchbar = document.getElementById('search')
 let watchList = JSON.parse(localStorage.getItem('mywatchlist'))
 searchform.addEventListener('submit', getMovies)
 document.addEventListener('click', toggleWatchlist)
+document.addEventListener('load',initialiseWatchlist)
 
+function initialiseWatchlist(){
+if (!watchList) {
+            watchList = []
+        }
+}
 function toggleWatchlist(e) {
     if (e.target.dataset.id) {
         const movieId = e.target.dataset.id
-        if (!watchList) {
-            watchList = []
-        }
         if (!watchList.includes(movieId)) {
             watchList.push(movieId)
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
