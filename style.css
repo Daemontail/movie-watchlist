@@ -59,6 +59,9 @@ input{
     border-radius: 0 10px 10px 0;
     padding:1em 2em;
 }
+.search:hover{
+    background-color: #616161;
+}
 /* Movie item */
 .watchlist{
     background-color: #121212;
@@ -67,6 +70,9 @@ input{
     background-repeat: no-repeat;
     background-position: left center;
     margin: 10px;
+}
+.watchlist:hover{
+    background-color: #303030;
 }
 .add{
     background-image:url("./img/add.svg");

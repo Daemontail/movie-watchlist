@@ -59,7 +59,7 @@ async function getMovieDetails(id) {
     if (Title && Runtime != "N/A" && Genre != "N/A" && Plot != "N/A" && imdbRating != "N/A" && Poster != "N/A") {
         movies.innerHTML+= `
     <section class="movie">
-        <img class="image" src=${Poster} />
+        <img class="image" src=${Poster} alt="${Title}'s Movie Poster" />
         <div>
             <div>
                 <h3>${Title}</h3>
