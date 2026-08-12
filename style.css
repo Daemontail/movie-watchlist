@@ -51,6 +51,7 @@ input{
     border-radius:10px 0 0 10px;
     border:none;
     color:inherit;
+    width:70%;
 }
 
 .search{
@@ -84,8 +85,6 @@ h2{
     color:#2E2E2F;
 }
 .movie{
-    align-items: center;
-    gap:10px;
     margin:20px 0;
 }
 .image{
@@ -93,8 +92,8 @@ h2{
     height: 180px;
     margin-right: 5px;
 }
-.star{
-    height:20px; 
+.icon{
+    height:15px; 
 }
 h3,p{
     display:inline-block;
@@ -107,9 +106,25 @@ h3{
     font-weight: 500;
 }
 .faded{
-    opacity: 0.5;
+    opacity: 0.4;
 }
 hr{
     margin:0;
     width:100%;
+}
+.filmreel{
+    width:50px;
+}
+.lower{
+    position:relative;
+    top:80px;
+}
+
+@media(width>768px){
+    header h1{
+        font-size: 3rem;
+    }
+    .nav{
+        font-size: 1rem;
+    }
 }
