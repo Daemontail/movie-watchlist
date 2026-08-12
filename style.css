@@ -4,6 +4,7 @@ body{
     box-sizing:border-box;
     font-family: "Inter",sans-serif;
     background-color: #121212;
+    color:white;
 }
 header{
     display:flex;
@@ -12,7 +13,6 @@ header{
     padding:3em 2em;
     background-image: url('./img/bg.png');
     background-size: cover;
-    color:white;
     text-align: center;
 }
 header h1{
@@ -40,22 +40,38 @@ input{
     font-family: inherit;
     border-radius:10px 0 0 10px;
     border:none;
-    color:white;
+    color:inherit;
 }
 button{
     border:none;
-    background-color: #4b4b4b;
     font-family: inherit;
     color:white;
-    padding:1 2em;
+    cursor:pointer;
+}
+.watchlist{
+    background-color: #121212;
+    padding:5px 0 5px 20px;
+    background-image: url("./img/add.svg");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+.search{
+    background-color: #4b4b4b;
     border-radius: 0 10px 10px 0;
+    padding:1em 2em;
 }
 .movies{
+    padding:0 2em;
+}
+.movie{
     display:flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    gap:10px;
     align-items: center;
     justify-content: center;
     height: 60vh;
+    padding:0 1em;
 }
 .movies img{
     width: 80px;
@@ -63,4 +79,15 @@ button{
 .movies h2{
     margin:0.5em;
     color:#262626;
+}
+.details,.details-1,.details-2{
+    display:flex;
+    gap:10px;
+}
+hr{
+    color: #131313;
+}
+h3,p{
+    display:inline-block;
+    margin:0 0 5px 0;
 }
