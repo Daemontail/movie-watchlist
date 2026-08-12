@@ -88,20 +88,13 @@ h2{
     gap:10px;
     margin:20px 0;
 }
-.movies img{
+.image{
     width: 120px;
     height: 180px;
+    margin-right: 5px;
 }
-.star::before{
-    content:' ';
-    height:10px;
-    width:10px;
-    background-image: url("./img/star.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    top:0;
-    left:0;
+.star{
+    height:20px; 
 }
 h3,p{
     display:inline-block;
