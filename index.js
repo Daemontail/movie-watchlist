@@ -32,10 +32,9 @@ async function getMovies(e) {
     movies.innerHTML = ''
     movies.classList.remove('lower')
     const searchVal = convertval(searchbar.value)
-    const response = await fetch(`http://www.omdbapi.com/?apikey=9fe11bc5&s=${searchVal}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=9fe11bc5&s=${searchVal}`)
     const data = await response.json()
     const movieArr = data.Search
-    console.log(movieArr)
     for (let movie of movieArr) {
         getMovieDetails(movie.imdbID)
     }
@@ -53,7 +52,7 @@ function convertval(str) {
     return converted;
 }
 async function getMovieDetails(id) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
     const data = await response.json()
     const { Title, Runtime, Genre, Plot, imdbRating, Poster, imdbID } = data
     if (Title && Runtime != "N/A" && Genre != "N/A" && Plot != "N/A" && imdbRating != "N/A" && Poster != "N/A") {

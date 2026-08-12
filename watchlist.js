@@ -23,7 +23,7 @@ function removeWatchlist(e) {
 
 }
 async function getMovieDetails(id) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
     const data = await response.json()
     watchlistObjs.push(data)
     renderWatchlist(watchlistDisplay)
