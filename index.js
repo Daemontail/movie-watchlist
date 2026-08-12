@@ -4,11 +4,11 @@ const searchbar = document.getElementById('search')
 let watchList = JSON.parse(localStorage.getItem('mywatchlist'))
 searchform.addEventListener('submit', getMovies)
 document.addEventListener('click', toggleWatchlist)
-document.addEventListener('load',initialiseWatchlist)
-
+document.addEventListener('DOMContentLoaded',initialiseWatchlist)
+console.log(watchList)
 function initialiseWatchlist(){
 if (!watchList) {
-            watchList = []
+            localStorage.setItem('mywatchlist',JSON.stringify([]))
         }
 }
 function toggleWatchlist(e) {
