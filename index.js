@@ -1,8 +1,20 @@
 const movies = document.getElementById('movies')
 const searchform = document.getElementById('search-form')
 const searchbar = document.getElementById('search')
-
+let watchList = JSON.parse(localStorage.getItem('mywatchlist'))
 searchform.addEventListener('submit', getMovies)
+document.addEventListener('click',addtoWatchlist)
+function addtoWatchlist(e){
+    if(e.target.dataset.id){
+        const movieId = e.target.dataset.id
+        if(!watchList){
+            watchList=[]
+        }
+        watchList.push(movieId)
+        localStorage.setItem('mywatchlist',JSON.stringify(watchList))
+        console.log(JSON.parse(localStorage.getItem('mywatchlist')))
+    }
+}
 async function getMovies(e) {
     e.preventDefault()
     movies.innerHTML=''
@@ -18,8 +30,7 @@ async function getMovies(e) {
 async function getMovieDetails(id){
     const response = await fetch(`http://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
     const data = await response.json()
-    console.log(data)
-    const { Title, Runtime, Genre, Plot, imdbRating, Poster } = data
+    const { Title, Runtime, Genre, Plot, imdbRating, Poster, imdbID } = data
     if(Title && Runtime && Genre && Plot && imdbRating && Poster){
     movies.innerHTML+= `
     <section class="movie">
@@ -32,14 +43,13 @@ async function getMovieDetails(id){
             <div id="details-2">
                 <p>${Runtime}</p>
                 <p>${Genre}</p>
-                <button class="watchlist">Watchlist</button>
+                <button class="watchlist" data-id=${imdbID}>Watchlist</button>
             </div>
             <p class="faded">${Plot}</p>
         </div>
         </section>
         <hr class="faded">`
     }
-
 }
 function convertval(str) {
     let converted = ''
