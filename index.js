@@ -13,7 +13,6 @@ function toggleWatchlist(e) {
         if (!watchList.includes(movieId)) {
             watchList.push(movieId)
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
-            console.log(JSON.parse(localStorage.getItem('mywatchlist')))
             e.target.classList.add('added')
             e.target.textContent="Remove from watchlist"
         }
@@ -22,7 +21,6 @@ function toggleWatchlist(e) {
             e.target.classList.remove('added')
             e.target.textContent="Add to watchlist"
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
-            console.log(JSON.parse(localStorage.getItem('mywatchlist')))
         }
     }
 }
@@ -61,6 +59,7 @@ async function getMovieDetails(id) {
         </section>
         <hr class="faded">`
     }
+
 }
 function convertval(str) {
     let converted = ''
