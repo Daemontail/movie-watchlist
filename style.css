@@ -6,25 +6,35 @@ body{
     background-color: #121212;
     color:white;
 }
-header{
+/* Shared classes */
+header,form,.movie{
     display:flex;
+}
+
+button{
+    border:none;
+    font-family: inherit;
+    color:inherit;
+    cursor:pointer;
+}
+
+/* Header Section */
+header{
     justify-content: space-between;
     align-items: center;
     padding:3em 2em;
     background-image: url('./img/bg.png');
     background-size: cover;
-    text-align: center;
 }
-header h1{
-    font-size: 1.5rem;
-}
-header a{
+.nav{
     text-decoration: none;
     color:inherit;
     font-size: 0.75rem;
+    font-weight: bold;
 }
+
+/* Search box */
 form{
-    display:flex;
     justify-content: center;
     position: relative;
     top:-20px;
@@ -42,12 +52,14 @@ input{
     border:none;
     color:inherit;
 }
-button{
-    border:none;
-    font-family: inherit;
-    color:white;
-    cursor:pointer;
+
+.search{
+    background-color: #4b4b4b;
+    border-radius: 0 10px 10px 0;
+    padding:1em 2em;
 }
+
+/* Movie item */
 .watchlist{
     background-color: #121212;
     padding:5px 0 5px 20px;
@@ -55,39 +67,51 @@ button{
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: left center;
-}
-.search{
-    background-color: #4b4b4b;
-    border-radius: 0 10px 10px 0;
-    padding:1em 2em;
+    margin: 10px;
 }
 .movies{
     padding:0 2em;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+}
+h2{
+    color:#2E2E2F;
 }
 .movie{
-    display:flex;
-    /* flex-direction: column; */
-    gap:10px;
     align-items: center;
-    justify-content: center;
-    height: 60vh;
-    padding:0 1em;
+    gap:10px;
+    margin:20px 0;
 }
 .movies img{
-    width: 80px;
+    width: 120px;
+    height: 180px;
 }
-.movies h2{
-    margin:0.5em;
-    color:#262626;
-}
-.details,.details-1,.details-2{
-    display:flex;
-    gap:10px;
-}
-hr{
-    color: #131313;
+.star::before{
+    content:' ';
+    height:10px;
+    width:10px;
+    background-image: url("./img/star.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top:0;
+    left:0;
 }
 h3,p{
     display:inline-block;
-    margin:0 0 5px 0;
+    margin:0 6px 8px;
+}
+p{
+    font-weight: 300;
+}
+h3{
+    font-weight: 500;
+}
+.faded{
+    opacity: 0.5;
+}
+hr{
+    margin:0;
+    width:100%;
 }

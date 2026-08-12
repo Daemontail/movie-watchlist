@@ -13,34 +13,15 @@
 <body>
     <header>
         <h1>Find your film</h1>
-        <a href="watchlist.html">My Watchlist</a>
+        <a class="nav" href="watchlist.html">My Watchlist</a>
     </header>
-    <form>
-        <input type="text" placeholder="Blade Runner">
+    <form id="search-form">
+        <input id="search" type="text" placeholder="Blade Runner">
         <button class="search" type="submit">Search</button>
     </form>
     <div class="movies" id="movies">
-        <!-- <img src="./img/filmreel.svg"> -->
-        <!-- <h2>Start exploring</h2> -->
-         <section class="movie">
-        <img src="./img/blue beetle.jpg"/>
-        <div id="details">
-            <div id="details-1">
-                <h3>Blue Beetle</h3>
-                <p>⭐</p>
-                <p>8.1</p>
-            </div>
-            <div id="details-2">
-                <p>118 min</p>
-                <p>Action,Adventure,Sci-Fi</p>
-                <button class="watchlist">Watchlist</button>
-            </div>
-            <p>An alien scarab chooses Jaime Reyes to be its symbiotic host,
-                bestowing the recent college graduate with a suit of armor that's capable of extraordinary powers,
-                forever changing his destiny as he becomes the superhero known as Blue Beetle.</p>
-        </div>
-        </section>
-        <hr>
+        <img src="./img/filmreel.svg">
+        <h2>Start exploring</h2>
     </div>
     <script src="index.js"></script>
 </body>
