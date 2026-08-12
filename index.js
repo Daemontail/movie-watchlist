@@ -13,12 +13,14 @@ function toggleWatchlist(e) {
         if (!watchList.includes(movieId)) {
             watchList.push(movieId)
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
-            e.target.classList.add('added')
+            e.target.classList.add('remove')
+            e.target.classList.remove('add')
             e.target.textContent="Remove from watchlist"
         }
         else{
             watchList.splice(watchList.indexOf(movieId),1)
-            e.target.classList.remove('added')
+            e.target.classList.add('add')
+            e.target.classList.remove('remove')
             e.target.textContent="Add to watchlist"
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
         }
@@ -63,7 +65,7 @@ async function getMovieDetails(id,div) {
             <div id="details-2">
                 <p>${Runtime}</p>
                 <p>${Genre}</p>
-                <button class="watchlist ${watchList.includes(imdbID)?"added":null}" data-id=${imdbID}>
+                <button class="watchlist ${watchList.includes(imdbID)?"remove":"add"}" data-id=${imdbID}>
                 ${watchList.includes(imdbID)?"Remove from watchlist":"Add to watchlist"}
                 </button>
             </div>

@@ -44,7 +44,7 @@ function renderWatchlist(div) {
             <div id="details-2">
                 <p>${Runtime}</p>
                 <p>${Genre}</p>
-                <button class="watchlist added" data-id=${imdbID}>
+                <button class="watchlist remove" data-id=${imdbID}>
                 Remove from watchlist
                 </button>
             </div>
