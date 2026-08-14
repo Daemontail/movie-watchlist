@@ -5,27 +5,30 @@ let watchList = JSON.parse(localStorage.getItem('mywatchlist'))
 searchform.addEventListener('submit', getMovies)
 document.addEventListener('click', toggleWatchlist)
 document.addEventListener('DOMContentLoaded',initialiseWatchlist)
-console.log(watchList)
+
+//If user has no watchlist in local storage, initialise as an empty array
 function initialiseWatchlist(){
 if (!watchList) {
             localStorage.setItem('mywatchlist',JSON.stringify([]))
         }
 }
+
 function toggleWatchlist(e) {
     if (e.target.dataset.id) {
-        const movieId = e.target.dataset.id
+        const btn = e.target
+        const movieId = btn.dataset.id
         if (!watchList.includes(movieId)) {
-            watchList.push(movieId)
+            watchList.unshift(movieId)
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
-            e.target.classList.add('remove')
-            e.target.classList.remove('add')
-            e.target.textContent = "Remove from watchlist"
+            btn.classList.add('remove')
+            btn.classList.remove('add')
+            btn.textContent = "Remove from watchlist"
         }
         else {
             watchList.splice(watchList.indexOf(movieId), 1)
-            e.target.classList.add('add')
-            e.target.classList.remove('remove')
-            e.target.textContent = "Add to watchlist"
+            btn.classList.add('add')
+            btn.classList.remove('remove')
+            btn.textContent = "Add to watchlist"
             localStorage.setItem('mywatchlist', JSON.stringify(watchList))
         }
     }
@@ -34,7 +37,7 @@ async function getMovies(e) {
     e.preventDefault()
     movies.innerHTML = ''
     movies.classList.remove('lower')
-    const searchVal = convertval(searchbar.value)
+    const searchVal = searchbar.value.trim().replaceAll(" ","+")
     const response = await fetch(`https://www.omdbapi.com/?apikey=9fe11bc5&s=${searchVal}`)
     const data = await response.json()
     const movieArr = data.Search
@@ -42,18 +45,7 @@ async function getMovies(e) {
         getMovieDetails(movie.imdbID)
     }
 }
-function convertval(str) {
-    let converted = ''
-    for (let char of str) {
-        if (char === " ") {
-            converted += "+"
-        }
-        else {
-            converted += char
-        }
-    }
-    return converted;
-}
+
 async function getMovieDetails(id) {
     const response = await fetch(`https://www.omdbapi.com/?apikey=9fe11bc5&i=${id}`)
     const data = await response.json()
@@ -78,6 +70,7 @@ async function getMovieDetails(id) {
         </div>
         </section>
         <hr class="faded">`
+
     }
 
 }
